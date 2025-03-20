@@ -1,0 +1,130 @@
+﻿@page
+@model appr_poe_part_2_owen_muhluri_ndimande_GIFT_OF_GIVERS.Pages.profileModel
+@{
+}
+
+@Html.Partial("_Menu")
+<style>
+   
+
+    .profile-header {
+        background-image: url('https://th.bing.com/th/id/R.4c88acb5575baa3a79beea40dea8ed46?rik=6R8e42rlUF1kcw&pid=ImgRaw&r=0');
+    background-size: cover; 
+    background-position: center;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    opacity: 0.8; 
+
+    }
+    .profile-card {
+        width: 60%;
+        background-color: white;
+        margin: 20px auto;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        position: relative;
+    }
+
+    /* Profile Info */
+    .profile-info {
+        display: flex;
+        align-items: flex-start;
+    }
+
+        .profile-info img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+
+    .user-details table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    .user-details td {
+        padding: 10px;
+        vertical-align: top;
+        font-size: 16px;
+        color: #555;
+    }
+
+    .user-details strong {
+        color: #333;
+    }
+
+    /* User Post */
+    .user-insp {
+        margin-top: 20px;
+        border-top: 1px solid #ccc;
+        padding-top: 15px;
+    }
+
+    .user-insp p {
+            font-size: 18px;
+            color: #333;
+            text-align:center;
+        }
+</style>
+  @inject IHttpContextAccessor HttpContextAccessor
+<!-- Profile Header -->
+<div class="profile-header">
+    <h1>User Profile</h1>
+</div>
+
+<!-- Profile Card -->
+<div class="profile-card">
+    <!-- User Icon -->
+    <div class="profile-info">
+
+        @if (HttpContextAccessor.HttpContext.Session.GetString("user_gender") == "Male")
+        {
+            <img src="https://static.vecteezy.com/system/resources/previews/024/183/506/non_2x/male-avatar-portrait-of-a-young-blond-guy-illustration-of-male-character-in-modern-color-style-vector.jpg" alt="User Icon" class="icon" style="width:5rem;height:5rem;border-radius:100%" />
+
+        }
+        @if (HttpContextAccessor.HttpContext.Session.GetString("user_gender") == "Female")
+        {
+            <img src="https://th.bing.com/th/id/OIP.MVJcYEbxpX4e2MAmqWtXAwHaHa?rs=1&pid=ImgDetMain" alt="User Icon" class="icon" style="width:5rem;height:5rem;border-radius:100%" />
+
+        }
+        @if (HttpContextAccessor.HttpContext.Session.GetString("user_gender") == "Other")
+        {
+            <img src="https://static.vecteezy.com/system/resources/previews/002/788/723/original/gender-equality-concept-men-and-women-character-on-the-scales-for-gender-equality-illustration-flat-vector.jpg" alt="User Icon" class="icon" style="width:5rem;height:5rem;border-radius:100%" />
+
+        }
+        <!-- User Info in Table Layout -->
+        <div class="user-details">
+            <table>
+                <tr>
+                    <td><strong>Name</strong></td>
+                    <td>:@Model.Name</td>
+                </tr>
+                <tr>
+                    <td><strong>Email</strong></td>
+                    <td>:@Model.Email</td>
+                </tr>
+                <tr>
+                    <td><strong>Phone Number</strong></td>
+                    <td>:@Model.PhoneNumber</td>
+                </tr>
+                <tr>
+                    <td><strong>Role</strong></td>
+                    <td>:@Model.Role</td>
+                </tr>
+                <tr>
+                    <td><strong>Gender:</strong></td>
+                    <td>:@Model.Gender</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="user-insp">
+        <p>Giving Back to the world 🌍 ,Thank you for joining us!!</p>
+    </div>
+</div>
+@Html.Partial("_footer")

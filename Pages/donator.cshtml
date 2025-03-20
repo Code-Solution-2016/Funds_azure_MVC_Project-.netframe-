@@ -1,0 +1,169 @@
+﻿@page
+@model appr_poe_part_2_owen_muhluri_ndimande_GIFT_OF_GIVERS.Pages.donatorModel
+@{
+}
+@Html.Partial("_Menu")
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donation Form</title>
+    <style>
+
+        .donation-form-container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: none;
+            border: none;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+            .form-group label {
+                display: block;
+                color: #555;
+            }
+
+            .form-group div {
+                width: 48%;
+                margin-bottom: 15px;
+            }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 30%;
+            padding: 10px;
+            background-color: transparent;
+            color: grey;
+            border: solid 1px grey;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+            button:hover {
+                background-color: grey;
+                color: white;
+            }
+
+        .donate-info {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 16px;
+            color: #777;
+        }
+
+        textarea {
+            resize: vertical;
+            height: 100px;
+        }
+
+        .donation-header {
+            background: url('https://www.goodthingsguy.com/wp-content/uploads/2020/10/meals-on-wheels-1024x681.jpg') no-repeat center center;
+            background-size: cover;
+            color: white;
+            padding: 40px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+
+        .header-description {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+
+
+
+
+    <div class="donation-form-container">
+        <!-- Donation Page  -->
+        <div class="donation-page">
+            <header class="donation-header">
+                <h1 style="color:white">Make a Donation</h1>
+                <p class="header-description">Your generosity helps provide essential resources to those in need. Every donation makes a difference!</p>
+            </header>
+        </div>
+        @inject IHttpContextAccessor HttpContextAccessor
+        <form method="POST">
+            <!-- Full Name and Email -->
+            <div class="form-group">
+                <div>
+                    <label for="name">Full Name</label>
+                    <input type="text" value="@if(HttpContextAccessor.HttpContext.Session.GetString("user_name")!=""){@HttpContextAccessor.HttpContext.Session.GetString("user_name")}" id="name" name="name" required>
+                </div>
+                <div>
+                    <label for="email">Email Address</label>
+                    <input value="@if(HttpContextAccessor.HttpContext.Session.GetString("user_email")!=""){
+                    @HttpContextAccessor.HttpContext.Session.GetString("user_email")
+}" type="email" id="email" name="email" required>
+                </div>
+            </div>
+
+            <!-- Phone Number and Donation Type -->
+            <div class="form-group">
+                <div>
+                    <label for="phone">Phone Number</label>
+                    <input value="@if(HttpContextAccessor.HttpContext.Session.GetString("user_name")!=""){
+                    @HttpContextAccessor.HttpContext.Session.GetString("user_phone")
+}" type="tel" id="phone" name="phone" required>
+                </div>
+                <div>
+                    <label for="donation-type">What would you like to donate?</label>
+                    <select id="donation-type" name="donation_type" required>
+                        <option value="">Select Donation Type</option>
+                        <option value="food">Food</option>
+                        <option value="clothes">Clothes</option>
+                        <option value="medical_supplies">Medical Supplies</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+            </div>
+
+            <!--  Donation Description -->
+            <div class="form-group" style="flex-direction: column;">
+                <label for="description">Donation Details</label>
+                <textarea id="description" name="description" placeholder="Please describe the items you are donating" required></textarea>
+            </div>
+          
+            @if(Model.message != "Donation successfully recorded.")
+            {
+
+            <p style="color:red">@Model.message</p>
+            }
+            @if(Model.message == "Donation successfully recorded.")
+            {
+
+            <p style="color:green">@Model.message</p>
+            }
+            <!-- Submit Button -->
+            <button type="submit">Donate Now</button>
+        </form>
+    </div>
+
+</body>
+</html>
+@Html.Partial("_footer")

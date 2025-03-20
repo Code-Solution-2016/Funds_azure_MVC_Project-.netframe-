@@ -1,0 +1,141 @@
+﻿@page
+@model appr_poe_part_2_owen_muhluri_ndimande_GIFT_OF_GIVERS.Pages.DonationsModel
+@{
+}
+
+@Html.Partial("_Menu")
+<style>
+    .donation-page {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        padding: 20px;
+        background-color: white;
+        border-radius: 8px;
+        text-align: center;
+        position: relative; 
+    }
+
+    .donation-header {
+        background: url('https://www.goodthingsguy.com/wp-content/uploads/2020/10/meals-on-wheels-1024x681.jpg') no-repeat center center;
+        background-size: cover;
+        color: white;
+        padding: 40px 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
+
+    .header-description {
+        font-size: 1.2em;
+        margin-top: 10px;
+    }
+
+    .donations {
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
+
+    h1, h2, h3 {
+        color: #333;
+    }
+
+    .donation-types {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; 
+    }
+
+    .donation-type {
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+        margin: 15px;
+        padding: 15px;
+        border: none;
+        border-radius: 5px;
+        width: 300px; 
+    }
+
+    .donation-image {
+        max-width: 100%;
+        height: auto;
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+
+    .donate-button-fixed {
+        position: fixed;
+        bottom: 20px; 
+        right: 20px; 
+        z-index: 1000; 
+    }
+
+    .btn {
+        padding: 12px 25px;
+        background-color: grey;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 1.2em;
+        transition: background 0.3s;
+    }
+
+        .btn:hover {
+            background-color: darkgrey;
+        }
+
+    .donation-footer {
+        margin-top: 30px;
+        color: #666;
+    }
+</style>
+
+<!-- Donation Page Layout -->
+<div class="donation-page">
+    <header class="donation-header">
+        <h1 style="color:white">Gift of the Givers Foundation</h1>
+        <h2 style="color:white">Your Contributions Make a Difference</h2>
+        <p class="header-description">Join us in our mission to provide essential resources to those in need.</p>
+    </header>
+
+    <section class="donations">
+        <div class="container">
+            <h2>How You Can Help</h2>
+            <p>Your generous donations are vital in supporting our mission. Here are the ways you can contribute:</p>
+            
+            <div class="donation-types">
+                <div class="donation-type">
+                    <img src="https://static.vecteezy.com/system/resources/previews/005/295/671/original/food-donation-concept-illustration-depicting-hands-donating-a-box-of-food-to-the-needy-and-poor-people-charity-benevolence-and-humanitarian-help-vector.jpg" alt="Food Donations" class="donation-image" />
+                    <h3>Food Donations</h3>
+                    <p>We accept non-perishable items, fresh produce, and packaged meals. Every meal you provide helps nourish a family in need.</p>
+                </div>
+                
+                <div class="donation-type">
+                    <img src="https://st.depositphotos.com/1177973/2962/i/450/depositphotos_29626597-stock-photo-donation-box-isolated-on-white.jpg" alt="Clothing Donations" class="donation-image" />
+                    <h3>Clothing Donations</h3>
+                    <p>Your donated clothing can help individuals and families stay warm and comfortable. We accept seasonal clothing for all ages, as well as shoes and bedding.</p>
+                </div>
+                
+                <div class="donation-type">
+                    <img src="https://media.istockphoto.com/id/1432227148/vector/hands-holding-red-heart-health-insurance-charity-donation-concept.jpg?s=612x612&w=0&k=20&c=qc-axy-ie7oziumu7qwGLRsyPXg6Ldx1I-0GJ1iJ04o=" alt="Medical Supplies" class="donation-image" /> <!-- Replace with your image URL -->
+                    <h3>Medical Supplies</h3>
+                    <p>Medical supplies and hygiene products are essential for those lacking access to basic health resources. Your donations help us provide care and support to vulnerable communities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="donation-footer">
+        <p>Thank you for your support! Together, we can make a difference.</p>
+    </footer>
+
+    <!-- Fixed Donate Button -->
+    <div class="donate-button-fixed">
+        <a href="/donator" class="btn btn-primary">Donate Now</a>
+    </div>
+</div>
+
+
+@Html.Partial("_footer")

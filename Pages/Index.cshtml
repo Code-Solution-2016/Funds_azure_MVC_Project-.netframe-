@@ -1,0 +1,42 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Loading....";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+    <title>Loading - Gift of the Givers Foundation</title>
+    <style>
+
+    </style>
+</head>
+<body>
+
+    <!-- Container that holds the four boxes -->
+    <div class="box-container">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+
+    <footer class="footer">
+        <p style="width:100%;text-align:center;">    &copy; All rights reserved by Code-Solution</p>
+    </footer>
+
+    <script>
+        // Redirect to the login page after 30 seconds
+        setTimeout(function(){
+           window.location.href = "/home";
+       }, 3000);
+    </script>
+
+</body>
+</html>

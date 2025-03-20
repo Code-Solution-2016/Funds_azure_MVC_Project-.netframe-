@@ -1,0 +1,216 @@
+﻿@page
+@model appr_poe_part_2_owen_muhluri_ndimande_GIFT_OF_GIVERS.Pages.RegisterModel
+@{
+}
+
+
+@Html.Partial("_Menu")
+
+<style>
+    /* Login page CSS styling */
+    .login-background {
+        background-image: url('https://th.bing.com/th/id/R.893763067afe360e6f69036213b6a2db?rik=sHvwVsXMQ2LRiA&pid=ImgRaw&r=0https://th.bing.com/th/id/R.893763067afe360e6f69036213b6a2db?rik=sHvwVsXMQ2LRiA&pid=ImgRaw&r=0');
+        background-size: cover;
+        background-position: center;
+        padding: 50px;
+        text-align: center;
+        margin-bottom: 20px;
+        color: #ffffff;
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .login-message {
+        background-size: cover;
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 10px;
+        border-radius: 8px;
+        display: inline-block;
+        width: 100%;
+        height: auto;
+    }
+
+    .login-main {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .container {
+        display: flex;
+        width: 100%;
+    }
+
+    .registration-info, .login-form {
+        flex: 1;
+        margin: 10px;
+        padding: 20px;
+        border-radius: 5px;
+    }
+
+    .registration-info {
+        background-color: white;
+        text-align: center;
+    }
+
+    .registration-image {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 15px;
+    }
+
+    .login-form {
+        background-color: #ffffff;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    .btn {
+        padding: 10px 15px;
+        border-radius: 4px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        color: #fff;
+        transition: background-color 0.3s;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        color: #fff;
+        transition: background-color 0.3s;
+    }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+
+    .alert {
+        margin-top: 10px;
+        color: red;
+    }
+</style>
+
+<!-- Div for the benefits of logging in -->
+
+<div class="login-background">
+    <div class="login-message">
+        <h2>
+            Why You Should Register?
+
+        </h2>
+        <br><br />
+        <p>
+            Registering with the Gift of the Givers Foundation allows you to access exclusive benefits and stay informed about our latest projects and initiatives. By creating an account, you can track your donations, connect with other supporters, and receive personalized updates tailored to your interests. Registration also helps us ensure that we can better assist those in need by knowing our community members. Join us in making a difference today!
+        </p>
+    </div>
+</div>
+
+
+<!-- Main Div for Registration and Login -->
+<div class="login-main">
+    <div class="container">
+        <div class="registration-info">
+            <img style="height:20rem" src="https://img.freepik.com/premium-vector/seo-specialist-isolated-cartoon-vector-illustrations_107173-22588.jpg" alt="Logins" class="registration-image" />
+            <h3>Already  Have an Account?</h3>
+            <br />
+            <p>Log in to access your account and stay connected with our mission. Your contributions help us make a difference in the lives of those in need!.</p>
+
+            <br /><br />
+            <button onclick="Login()" class="btn btn-secondary" style="border:none">Login Here</button>
+        </div>
+
+        <div class="login-form">
+            <h2>Register</h2>
+            <br><br />
+            <form method="post">
+
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" value="@Model.name" required class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" value="@Model.email" required class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label for="phoneNumber">Phone Number</label>
+                    <input type="text" id="phoneNumber" name="phoneNumber" value="@Model.phoneNumber" required class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label for="role">Role</label>
+                    <select id="role" name="role" required class="form-control">
+                        <option value="" disabled>Select your role</option>
+                        <option value="Donator">Donator</option>
+                        <option value="Volunteer">Volunteer</option>
+                        <option value="User">User</option>
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <select id="gender" name="gender" required class="form-control">
+                        <option value="" disabled>Select your gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required class="form-control" />
+                </div>
+
+                @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+                {
+                    <div class="alert alert-danger">
+                        <p>@Model.ErrorMessage</p>
+                    </div>
+                    <br />
+                }
+                else
+                {
+                    <br />
+                }
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Register</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+@Html.Partial("_footer");
+
+<script>
+    function Login() {
+    window.location.href="/login";
+}
+</script>

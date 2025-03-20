@@ -1,0 +1,141 @@
+﻿@page
+@model appr_poe_part_2_owen_muhluri_ndimande_GIFT_OF_GIVERS.Pages.aboutModel
+@{
+}
+
+@Html.Partial("_Menu")
+
+<style>
+
+    .hero {
+        background-image: url('https://th.bing.com/th/id/OIP._w0QvjWrqiOcT12ELW5FzwHaEU?w=281&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7');
+        height: 500px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        text-align: center;
+        background-size: cover;
+        position: relative;
+    }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+    .hero-content {
+        position: relative;
+    }
+
+        .hero-content h1 {
+            font-size: 3em;
+        }
+
+    .mission, .impact, .get-involved {
+        padding: 50px 0;
+        text-align: center;
+    }
+
+    .impact-content {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .stat {
+        text-align: center;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        margin: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: grey;
+        color: white;
+        cursor: pointer;
+    }
+
+    footer {
+        background-color: #333;
+        color: white;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .social-links a {
+        color: white;
+        margin: 0 10px;
+        text-decoration: none;
+    }
+
+        .social-links a:hover {
+            text-decoration: underline;
+        }
+</style>
+
+<!-- About Us Section -->
+<!-- Hero Section with Background Image -->
+<br />
+<div class="hero">
+    <div class="hero-content">
+        <h1>About Gift of the Givers Foundation</h1>
+        <br />
+        <p style="width:80%;margin-left:10%;margin-right:10%">At Gift of the Givers, we believe in the power of unity and compassion. By joining forces, we can provide essential support to those facing hardship, whether it's through disaster relief, food programs, or community development projects. Your contribution, no matter how big or small, helps change lives and build a better future for all. Together, we can make a lasting difference in the lives of those in need, bringing hope, dignity, and the promise of a brighter tomorrow.</p>
+
+     
+    </div>
+</div>
+
+<!-- Mission Statement Section -->
+<section class="mission">
+    <div class="container">
+        <h2>Our Mission</h2><br /><br />
+        <p style="width:80%;margin-left:10%;margin-right:10%">
+            Gift of the Givers Foundation, established in 1992, is the largest humanitarian relief organisation in Africa. With projects in over 40 countries worldwide, we are committed to delivering life-saving aid and assistance to those affected by disasters, poverty, and conflict.
+
+
+            Our mission is to provide hope and relief through medical care, food distribution, water provision, education, and support to vulnerable communities. Over the years, we have gained recognition for our quick response to global crises and our long-term commitment to rebuilding lives.
+
+
+        </p>
+    </div>
+</section>
+
+
+
+<!-- Vision and Mission Section -->
+<section class="mission">
+    <div class="container">
+        <h2>Our Vision</h2><br />
+        <p style="width:80%;margin-left:10%;margin-right:10%">
+            We envision a world where every individual, no matter their background or circumstance, has access to basic human necessities and the opportunity to thrive. Our work aims to alleviate suffering and build stronger, self-reliant communities.
+        </p>
+        <br /><br />
+        <h2>Our Mission</h2><br />
+        <p style="width:80%;margin-left:10%;margin-right:10%">
+            To improve the quality of life for vulnerable populations through disaster response, hunger relief, healthcare, education, and sustainable development. We strive to act with urgency, compassion, and accountability in all our efforts.
+        </p>
+    </div>
+</section>
+
+
+<!-- Call to Action Section -->
+<section class="mission">
+    <div class="container">
+        <h2>Join Us</h2><br />
+        <p style="width:60%;margin-left:20%;margin-right:20%">
+            Together, we can make a lasting difference. Whether through donations, volunteering, or spreading awareness, you have the power to help us reach more people in need.
+        </p>
+        <br><br />
+        <button href="/Donate" class="btn btn-primary">Donate Now</button>
+    </div>
+</section>
+
+<!-- Footer -->
+@Html.Partial("_Footer")

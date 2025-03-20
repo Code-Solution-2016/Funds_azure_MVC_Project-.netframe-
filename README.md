@@ -1,2 +1,1 @@
-# Funds_azure_MVC_Project-.netframe-
-Non-profit-organization, working with azure piplines and databases
+# appr_poe_part_2_owen_muhluri_ndimande_GIFT_OF_GIVERS

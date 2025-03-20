@@ -1,0 +1,180 @@
+﻿@page
+@model appr_poe_part_2_owen_muhluri_ndimande_GIFT_OF_GIVERS.Pages.loginModel
+@{
+}
+
+@Html.Partial("_Menu")
+
+<style>
+    .login-background {
+        background-image: url('https://www.habitat.org/sites/default/files/styles/2_1_default/public/hero_images/USLA-24-MC-113-00446-crop.jpg?itok=ABJ2s3Wg');
+        background-size: cover;
+        background-position: center;
+        padding: 50px;
+        text-align: center;
+        margin-bottom: 20px;
+        color: #ffffff;
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .login-message {
+        background-size: cover;
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 10px;
+        border-radius: 8px;
+        display: inline-block;
+        width: 100%;
+        height: auto;
+    }
+
+    .login-main {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .container {
+        display: flex;
+        width: 100%;
+    }
+
+    .registration-info, .login-form {
+        flex: 1;
+        margin: 10px;
+        padding: 20px;
+        border-radius: 5px;
+    }
+
+    .registration-info {
+        background-color: white;
+        text-align: center;
+    }
+
+    .registration-image {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 15px;
+    }
+
+    .login-form {
+        background-color: #ffffff;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    .btn {
+        padding: 10px 15px;
+        border-radius: 4px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        color: #fff;
+        transition: background-color 0.3s;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        color: #fff;
+        transition: background-color 0.3s;
+    }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+
+    .alert {
+        margin-top: 10px;
+        color: red;
+    }
+</style>
+
+<!-- Div for the benefits of logging in -->
+
+<div class="login-background">
+    <div class="login-message">
+        <h2>Why Login?</h2>
+        <br><br />
+        <p>
+            Logging in to our platform gives users full access to a range of features designed to enhance their experience and engagement. By logging in, users can easily manage their donations, track their volunteer hours, and view their contribution history. It also allows for a more personalised experience, ensuring users stay updated with the latest initiatives and opportunities to help. Additionally, logging in helps us keep your information secure, providing a safe and trusted environment to participate in charitable activities. Join us by logging in and take part in making a positive impact!
+            .
+        </p>
+    </div>
+</div>
+
+<!-- Main Div for Registration and Login -->
+<div class="login-main">
+    <div class="container">
+        <div class="registration-info">
+            <img style="height:10rem" src="https://anzmh.asn.au/hubfs/Untitled%20design%20(23)-4.png" alt="Registration Image" class="registration-image" />
+            <h3>Don't Have an Account?</h3>
+            <br />
+            <p>Register now to become a part of our mission and make a difference in the lives of those in need.</p>
+          
+            <br /><br />
+            <button onclick="reg()" class="btn btn-secondary" style="border:none">Register Here</button>
+        </div>
+
+        <div class="login-form">
+            <h2>Login</h2>
+            <br><br />
+            <form method="post">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input value="@Model.email_error" type="email" id="email" name="email" required class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required class="form-control" />
+                </div>
+                @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+                {
+                    <div class="alert alert-danger">
+                        <p>@Model.ErrorMessage</p>
+                    </div>
+                    <br />
+                }
+                else
+                {
+                    <br />
+                }
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </div>
+
+               
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+@Html.Partial("_footer");
+
+<script>
+
+function reg(){
+
+    window.location.href="/Register";
+}
+</script>

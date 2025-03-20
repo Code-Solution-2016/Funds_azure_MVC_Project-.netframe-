@@ -1,0 +1,178 @@
+﻿@page
+@model appr_poe_part_2_owen_muhluri_ndimande_GIFT_OF_GIVERS.Pages.IncidentsModel
+@{
+}
+@Html.Partial("_Menu")
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Natural Disasters & Emergencies - Gift of the Givers Foundation</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+           
+            position: relative;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="date"], input[type="number"], textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        textarea {
+            resize: vertical;
+        }
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color:grey;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: darkgrey; 
+        }
+
+        .donation-page {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            text-align: center;
+            position: relative;
+        }
+
+        .donation-header {
+            background: url('https://th.bing.com/th/id/OIP.3LrQSECxLcVXnhhVcSHDlQHaEK?w=273&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7') no-repeat center center;
+            background-size: cover;
+            color: white;
+            padding: 40px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .header-description {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+   
+    <div class="donation-page">
+        <header class="donation-header">
+            <h1 style="color:white">Report Natural Disasters & Emergencies</h1>
+            <p class="header-description">Please fill out the following form to report any natural disaster or emergency. Your report will help us respond quickly and provide the necessary assistance to those affected.</p>
+        </header>
+        </div>
+    <div class="container">
+        
+        <form method="post" >
+            <div class="form-group">
+                <label for="incidentTitle">Disaster/Emergency Title </label>
+                <input type="text" id="incidentTitle" name="incidentTitle" placeholder="e.g., Flood in Johannesburg" required>
+            </div>
+
+            <div class="form-group">
+                <label for="incidentDate">Date of Incident</label>
+                <input type="date" id="incidentDate" name="incidentDate" required>
+            </div>
+
+            <div class="form-group">
+                <label for="province">Province</label>
+                <select id="province" name="province" required>
+                    <option value="">Select a province</option>
+                    <option value="Eastern Cape">Eastern Cape</option>
+                    <option value="Free State">Free State</option>
+                    <option value="Gauteng">Gauteng</option>
+                    <option value="KwaZulu-Natal">KwaZulu-Natal</option>
+                    <option value="Limpopo">Limpopo</option>
+                    <option value="Mpumalanga">Mpumalanga</option>
+                    <option value="Northern Cape">Northern Cape</option>
+                    <option value="North West">North West</option>
+                    <option value="Western Cape">Western Cape</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="town">Town</label>
+                <input type="text" id="town" name="town" placeholder="e.g., Johannesburg" required>
+            </div>
+
+            <div class="form-group">
+                <label for="village">Village</label>
+                <input type="text" id="village" name="village" placeholder="e.g., Mvezo" required>
+            </div>
+
+            <div class="form-group">
+                <label for="affectedPopulation">Estimated Number of Affected People</label>
+                <input type="number" id="affectedPopulation" name="affectedPopulation" min="1" placeholder="e.g., 500" required>
+            </div>
+
+            <div class="form-group">
+                <label for="incidentDescription">Description</label>
+                <textarea id="incidentDescription" name="incidentDescription" rows="5" placeholder="Provide details of the disaster/emergency, including the current situation and urgent needs." required></textarea>
+            </div>
+
+
+            @inject IHttpContextAccessor HttpContextAccessor
+            <div class="button-container">
+                @if(HttpContextAccessor.HttpContext.Session.GetString("user_role") !=null)
+
+                {  @if (Model.message!="no"&&Model.message!="")
+                    {
+                        <p style="color:green">Report is successfully sent,point on your name where there's a user icon to check it'</p>
+                    }
+                    if (Model.message == "no" && Model.message != "")
+                    {
+                        <p style="color:red">Failed to complete report due to network, try again later..</p>
+                    }
+
+                    
+
+                    <button type="submit" class="btn">Submit Report</button>
+                }
+                @if (HttpContextAccessor.HttpContext.Session.GetString("user_role") == null)
+                {
+                    <p style="color:red">First login to report an Incidents..</p>
+                }
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
+@Html.Partial("_footer")
